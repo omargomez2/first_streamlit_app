@@ -1,7 +1,7 @@
 #---------------------------------
 # Author: OG
 # Description: Python script related to the hands on snowflake series workshop
-#---------------
+#---------------------------------
 
 import streamlit
 import pandas
@@ -18,4 +18,4 @@ streamlit.text('🥑🍞Avocado Toast with blue cheese')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-straeamlit.dataframe(my_fruit_list)
+#straeamlit.dataframe(my_fruit_list)

@@ -18,4 +18,5 @@ streamlit.text('🥑🍞Avocado Toast with blue cheese')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
+st.write(my_fruit_list)
 #straeamlit.dataframe(my_fruit_list)

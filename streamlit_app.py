@@ -1,6 +1,6 @@
 #---------------------------------
 # Author: OG
-# Description: Python script related to the hands on snowflake series workshop
+# Description: Python script adapted from the hands on snowflake series workshop
 #---------------------------------
 
 import streamlit
@@ -32,16 +32,19 @@ streamlit.dataframe(fruits_to_show)
 
 streamlit.header('Fruityvice Fruit Advice!!!')
 #streamlit.text(fruityvice_response.json())
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+if not fruit_choice:
+  streamlit.error('Please select a fruit to get information.')
+else:  
+  #streamlit.write('The user entered ', fruit_choice)
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+  fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
-
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# write your own comment - what does this do?
-streamlit.dataframe(fruityvice_normalized)
-
+  # write your own comment - what does this do?
+  streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+  streamlit.error()
 streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])

@@ -1,6 +1,7 @@
 #---------------------------------
 # Author: OG
 # Description: Python script adapted from the hands on snowflake series workshop
+# URL: https://omargomez2-first-streamlit-app-streamlit-app-wexxup.streamlit.app/
 #---------------------------------
 
 import streamlit

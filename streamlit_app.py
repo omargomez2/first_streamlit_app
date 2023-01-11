@@ -64,7 +64,7 @@ def get_fruit_load_list():
     #conn.execute("select * from fruit_load_list;")
     return my_cur.fetchall()
 
-@st.experimental_singleton
+@streamlit.experimental_singleton
 def init_connection():
     return psycopg2.connect(**streamlit.secrets["postgres"])
 

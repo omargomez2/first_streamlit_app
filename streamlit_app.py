@@ -64,7 +64,7 @@ def get_fruit_load_list():
     #conn.execute("select * from fruit_load_list;")
     return my_cur.fetchall()
 
-
+@st.experimental_singleton
 def init_connection():
     return psycopg2.connect(**streamlit.secrets["postgres"])
 
@@ -82,7 +82,7 @@ if streamlit.button('Get Fruit List'):
 
 def insert_row_snowflake(new_fruit):
   with conn.cursor() as my_cur:
-    my_cur.execute("insert into fruit_load_list (fruit_name) values ('hola');")
+    my_cur.execute("INSERT INTO fruit_load_list (fruit_name) VALUES ('''hola''');")
     #my_cur.execute("insert into fruit_load_list (fruit_name) values ('" + new_fruit + "');")
     return "Thanks for adding " + new_fruit
 

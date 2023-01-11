@@ -65,7 +65,7 @@ def get_fruit_load_list():
 
 
 def init_connection():
-    return psycopg2.connect(**st.secrets["postgres"])
+    return psycopg2.connect(**streamlit.secrets["postgres"])
 
   
 streamlit.header("View Our Fruit List - Add Your Favorites!")

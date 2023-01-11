@@ -60,7 +60,8 @@ except URLError as e:
 #Snowflake-related functions
 def get_fruit_load_list():
   with conn.cursor() as my_cur:
-    conn.execute("select * from fruit_load_list")
+    my_cur.execute("select * from fruit_load_list;")
+    #conn.execute("select * from fruit_load_list;")
     return my_cur.fetchall()
 
 
